@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-import Cards from '../Cards/cards';
+import Cards from '../Cards/Cards';
 
-import './container.css';
+import './Container.css';
 
-export default class Container extends Component {
+class Container extends Component {
 
     render() {
         return (
@@ -14,3 +14,5 @@ export default class Container extends Component {
         );
     }
 }
+
+export default Container;
