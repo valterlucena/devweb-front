@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 import './Cards.css';
-import Paper from '@material-ui/core/Paper';
-import { Typography } from '@material-ui/core';
+import { Typography, Card, CardContent, CardActions, Button } from '@material-ui/core';
 
 class Cards extends Component {
     
@@ -32,10 +31,19 @@ class Cards extends Component {
         return (
             <div className="cards">
                 {cards.map(card => (
-                    <Paper className="card">
-                        <strong>{card.termo}</strong>
-                        <p>{card.definicao}</p>
-                    </Paper>
+                    <Card className="card">
+                        <CardContent>
+                            <Typography variant="h5">
+                                {card.termo}
+                            </Typography>
+                            <Typography component="p">
+                                {card.definicao}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small">Learn More</Button>
+                        </CardActions>
+                    </Card>
                 ))}
             </div>
         );
