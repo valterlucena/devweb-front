@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './Cards.css';
-import { Typography, Card, CardContent, CardActions, Button } from '@material-ui/core';
+import { Typography, Card, CardContent, CardActions, Button, Grid } from '@material-ui/core';
 
 class Cards extends Component {
     
@@ -30,21 +30,32 @@ class Cards extends Component {
         const {cards} = this.state;
         return (
             <div className="cards">
-                {cards.map(card => (
-                    <Card className="card">
-                        <CardContent>
-                            <Typography variant="h5">
-                                {card.termo}
-                            </Typography>
-                            <Typography component="p">
-                                {card.definicao}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
-                    </Card>
-                ))}
+                <Grid 
+                    container 
+                    spacing={40}
+                >
+                    {cards.map(card => (
+                        <Grid 
+                            item 
+                            xs={12} 
+                            sm={6} 
+                            lg={4} 
+                            xl={4}
+                        >
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" align="center">
+                                        {card.termo}
+                                    </Typography>
+                                    <Typography component="p" align="center">
+                                        {card.definicao}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+
             </div>
         );
     }

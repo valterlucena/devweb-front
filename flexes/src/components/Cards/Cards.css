@@ -1,7 +1,6 @@
 .card {
-    margin: 10px 10px;
-    padding: 10px;
+    display: 'flex';
+    flex-wrap: 'wrap';
+    justify-content: 'space-around';
     background: #fff;
-    width: 45%;
-    float: left;
 }
