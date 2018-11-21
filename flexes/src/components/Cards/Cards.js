@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './Cards.css';
-import { Typography, Card, CardContent, CardActions, Button, Grid } from '@material-ui/core';
+import { Typography, Card, CardContent, Grid } from '@material-ui/core';
 
 class Cards extends Component {
     
@@ -55,7 +55,6 @@ class Cards extends Component {
                         </Grid>
                     ))}
                 </Grid>
-
             </div>
         );
     }
