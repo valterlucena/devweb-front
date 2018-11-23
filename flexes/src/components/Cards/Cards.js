@@ -2,34 +2,31 @@ import React, {Component} from 'react';
 
 import './Cards.css';
 import { Typography, Card, CardContent, Grid } from '@material-ui/core';
+import { Api } from '../../Api';
 
 class Cards extends Component {
     
-    state = {
-        cards: [
-            {
-                termo: 'termo1',
-                definicao: 'definicao1'
-            },
-            {
-                termo: 'termo2',
-                definicao: 'definicao2'
-            },
-            {
-                termo: 'termo3',
-                definicao: 'definicao3'
-            },
-            {
-                termo: 'termo4',
-                definicao: 'definicao4'
-            },
-        ]
+    constructor(props) {
+        super(props);
+        this.state = {
+            cards: []
+        }
+    }
+
+    componentWillMount = async() => {
+        await this.refresh();
+        console.log(this.state);
+    }
+
+    refresh = async() => {
+        let response = await Api.get('/cards')
     }
 
     render() {
         const {cards} = this.state;
         return (
             <div className="cards">
+                {this.refresh}
                 <Grid 
                     container 
                     spacing={40}
