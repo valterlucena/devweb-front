@@ -5,9 +5,17 @@ import AddIcon from '@material-ui/icons/Add'
 
 class NewCard extends Component {
 
-    state = {
-        open: false,
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            card: {
+                termo: '',
+                definicao: ''
+            },
+            open: false
+        }
+    }
     
     handleClickOpen = () => {
         this.setState({ open: true });
