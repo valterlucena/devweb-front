@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from './components/Container/Container';
 
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Container />
+        <Link to ="/disciplinas">ver disciplinas</Link>
       </div>
     );
   }
