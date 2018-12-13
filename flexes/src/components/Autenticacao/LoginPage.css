@@ -1,0 +1,20 @@
+.login {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6rem auto;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.MuiCardActions-action-142 {
+    margin: 0 auto!important;
+}
+
+.size {
+    font-size: 0.8em;
+}
+
+.size a {
+    text-decoration: none;
+}

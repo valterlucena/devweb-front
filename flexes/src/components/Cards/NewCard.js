@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Api } from "../../Api";
 import {
+  Fab,
   Button,
   TextField,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
@@ -37,6 +37,7 @@ class NewCard extends Component {
   submit = () => {
     this.handleClose();
     Api.post("/lista/5bfaf60f43a8e7465ce0fec0/card", this.state.card).then((response) => {
+      console.log(response.data);
       if (this.props.newCard) {
         this.props.newCard(this.state.card);
       };
@@ -61,15 +62,14 @@ class NewCard extends Component {
   render() {
     return (
       <div>
-        <Button
-          variant="fab"
+        <Fab
           color="secondary"
           aria-label="Add"
           style={{ bottom: "2em", position: "fixed", right: "2em" }}
           onClick={this.handleClickOpen}
         >
           <AddIcon />
-        </Button>
+        </Fab>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}

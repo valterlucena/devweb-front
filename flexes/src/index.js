@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import DisciplinaPage from './pages/DisciplinaPage';
+import Disciplina from './components/Disciplina/Disciplina';
+import LoginPage from './components/Autenticacao/LoginPage';
+import CadastroPage from './components/Autenticacao/CadastroPage'
+import Lista from './components/Lista/Lista';
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route path="/" exact={true} component={App} />
-            <Route path="/disciplinas" component={DisciplinaPage} />
+            <Route exactpath="/" component={App} />
+            <Route exactpath="/cadastro" component={CadastroPage} />
+            <Route exactpath="/disciplinas" component={Disciplina} />
+            <Route exactpath="/lista" component={Lista} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

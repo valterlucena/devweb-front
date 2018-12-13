@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Api } from "../../Api";
 import NewCard from "../Cards/NewCard";
 import Cards from "../Cards/Cards";
-import "./Container.css";
+import "./Lista.css";
 import Grid from "@material-ui/core/Grid";
 
-class Container extends Component {
+class Lista extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,9 +25,9 @@ class Container extends Component {
 
   refresh = () => {
     this.reset();
-    Api.get("/lista/5bfaf60f43a8e7465ce0fec0").then(response => {
+    Api.get("/lista/5c110887bb082f1e750a29dc").then(response => {
       const lista = response.data;
-      this.setState({ lista: lista, listaLoaded: true });
+      this.setState({ lista: lista, listaLoaded: true});
       this.renderCards();
     });
   }
@@ -70,7 +70,7 @@ class Container extends Component {
     } else {
       return (
         <div className="container">
-          Sem cards para serem mostrados. Adicione um novo
+          Sem cards para serem mostrados. Adicione um novo.
           <NewCard newCard={this.refresh} deleteCard={this.refresh}/>
         </div>
       );
@@ -78,4 +78,4 @@ class Container extends Component {
   }
 }
 
-export default Container;
+export default Lista;

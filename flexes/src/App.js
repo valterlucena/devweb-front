@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Container from './components/Container/Container';
+import Disciplina from './components/Disciplina/Disciplina';
 
 import './styles.css';
 import Header from './components/Header/Header';
@@ -11,8 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Container />
-        <Link to ="/disciplinas">ver disciplinas</Link>
+        <Disciplina />
       </div>
     );
   }
