@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Api } from "../../Api";
+
 import {
   Fab,
   Button,
@@ -11,14 +12,13 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
-class NewCard extends Component {
+class NovaLista extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      card: {
-        termo: "",
-        definicao: ""
+      lista: {
+        titulo: ""
       },
       open: false
     };
@@ -27,19 +27,18 @@ class NewCard extends Component {
   reset = () => {
     this.setState({
       open: false,
-      card: {
-        termo: "",
-        definicao: ""
+      lista: {
+        titulo: ""
       }
     });
   };
 
   submit = () => {
     this.handleClose();
-    Api.post(`${this.props.url.pathname}/card`, this.state.card).then(
+    Api.post(`${this.props.url.pathname}/lista`, this.state.lista).then(
       response => {
-        if (this.props.newCard) {
-          this.props.newCard(this.state.card);
+        if (this.props.novaLista) {
+          this.props.novaLista(this.state.lista);
         }
       }
     );
@@ -56,7 +55,7 @@ class NewCard extends Component {
 
   handleInputChange = text => event => {
     this.setState({
-      card: { ...this.state.card, [text]: event.target.value }
+      lista: { ...this.state.lista, [text]: event.target.value }
     });
   };
 
@@ -76,22 +75,17 @@ class NewCard extends Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Novo Card</DialogTitle>
+          <DialogTitle id="form-dialog-title">
+            Nova Lista de Estudos
+          </DialogTitle>
           <DialogContent>
             <TextField
               autoFocus
               margin="dense"
-              id="termo"
-              label="Termo"
+              id="titulo"
+              label="Título"
               fullWidth
-              onChange={this.handleInputChange("termo")}
-            />
-            <TextField
-              margin="dense"
-              id="definicao"
-              label="Definição"
-              fullWidth
-              onChange={this.handleInputChange("definicao")}
+              onChange={this.handleInputChange("titulo")}
             />
           </DialogContent>
           <DialogActions>
@@ -108,4 +102,4 @@ class NewCard extends Component {
   }
 }
 
-export default NewCard;
+export default NovaLista;

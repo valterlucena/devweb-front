@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
 import "./Cards.css";
-import { Typography, Card, CardContent, CardActions, IconButton } from "@material-ui/core";
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardActions,
+  IconButton
+} from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Api } from "../../Api";
 
@@ -12,12 +18,14 @@ class Cards extends Component {
   }
 
   deleteCard = () => {
-    Api.delete('/lista/5bfaf60f43a8e7465ce0fec0/card/' + this.props.card._id).then(response => {
-      if(this.props.deleteCard) {
-        this.props.deleteCard(this.props.card);
+    Api.delete(`${this.props.url.pathname}/card/` + this.props.card._id).then(
+      response => {
+        if (this.props.deleteCard) {
+          this.props.deleteCard(this.props.card);
+        }
       }
-    })
-  }
+    );
+  };
 
   render() {
     return (
@@ -28,12 +36,12 @@ class Cards extends Component {
               {this.props.card.termo}
             </Typography>
             <Typography component="p" align="center">
-            {this.props.card.definicao}
+              {this.props.card.definicao}
             </Typography>
           </CardContent>
           <CardActions>
             <IconButton onClick={this.deleteCard} aria-label="Delete">
-                <DeleteIcon/>
+              <DeleteIcon />
             </IconButton>
           </CardActions>
         </Card>
